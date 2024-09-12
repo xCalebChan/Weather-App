@@ -13,3 +13,16 @@ body {
     background-repeat: no-repeat;   /* Prevents repeating */
     background-size: cover;         /* Ensures the gradient covers the entire page */
 }
+
+#ButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#links {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
