@@ -1,0 +1,8 @@
+body {
+    background: linear-gradient(to bottom, 
+        #ff6e7f, /* Light pinkish-orange */
+        #ffcc83, /* Soft orange */
+        #ff9a8b, /* Warm pink */
+        #ff6f61  /* Deep orange */
+    );
+}
