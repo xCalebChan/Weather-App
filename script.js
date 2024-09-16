@@ -43,7 +43,7 @@ function getWeather() {
         .catch(error => {
             error.style.display = 'block';
             error.textContent = 'Error fetching hourly forecast data. Please try again';
-        })
+        });
 }
 
 function displayWeather(data) {
@@ -77,25 +77,29 @@ function displayHourlyForecast(data) {
     const hourlyForecast = document.getElementById('hourlyForecast');
     hourlyForecast.innerHTML = '';
     const container = document.getElementById('weatherForecast');
-    container.style.display = 'flex';
     const next24Hours = data.slice(0, 8);
 
-    next24Hours.forEach(item => {
-        const dateTime = new Date(item.dt * 1000);
-        const hour = dateTime.getHours();
-        const temperature = Math.round(item.main.temp);
-        const iconCode = item.weather[0].icon;
-        const iconURL = `https://openweathermap.org/img/wn/${iconCode}.png`;
+    if (data.cod === '404') {
+        return;
+    } else {
+        container.style.display = 'flex';
+        next24Hours.forEach(item => {
+            const dateTime = new Date(item.dt * 1000);
+            const hour = dateTime.getHours();
+            const temperature = Math.round(item.main.temp);
+            const iconCode = item.weather[0].icon;
+            const iconURL = `https://openweathermap.org/img/wn/${iconCode}.png`;
 
-        const hourlyItemHtml = `
-            <div class="hourly-item">
-                <span>${hour}:00</span>
-                <img src="${iconURL}" alt="Hourly Weather Icon">
-                <span>${temperature}°C</span>
-            </div>
-        `;
-        hourlyForecast.innerHTML += hourlyItemHtml;
-    });
+            const hourlyItemHtml = `
+                <div class="hourly-item">
+                    <span>${hour}:00</span>
+                    <img src="${iconURL}" alt="Hourly Weather Icon">
+                    <span>${temperature}°C</span>
+                </div>
+            `;
+            hourlyForecast.innerHTML += hourlyItemHtml;
+        });
+    }
 }
 
 function showImage() {
