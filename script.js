@@ -12,7 +12,7 @@ function toggleDayNight() {
 }
 
 function getWeather() {
-    const apiKey = 'INSERT_YOUR_API_KEY_HERE';
+    const apiKey = 'abd8548ba25e4c086762a92a98f21bfe';
     const city = document.getElementById('SearchBox').value;
     const error = document.getElementById('errorMessage');
 
