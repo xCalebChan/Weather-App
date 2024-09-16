@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Weather</title> <!--this is the text that appears on a tab -->
+    <title>Weather</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A website to check the weather in your area"> <!--this is a description of the website-->
-    <meta name="author" content="Caleb Chan"> <!-- author name of the website-->
-    <link rel="stylesheet" href="styles.css"> <!-- links css-->
+    <meta name="description" content="A website to check the weather in your area">
+    <meta name="author" content="Caleb Chan">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <img src="icon.jpg" alt="Weather Icon">
+    <div id="currentWeather">
+       <p id="currentWeatherTXT">Current Weather</p>
+       <img id="currentWeatherIcon">
+       <p id="currentTemperature">currentTemperature</p>
+       <p id="currentCity">currentCity</p>
+       <p id="currentConditions">currentConditions</p>
+    </div>
     <div id="UIinterface">
-        <div id="textbox">
-            <div id="SearchBar">
-                <input id="SearchBox" type="text" placeholder="Enter a City">
-            </div>
+        <img src="clickme.png" alt="Arrow" id="ArrowInstruction">
+        <img src="icon.png" alt="Weather Icon" id="SunIcon" onclick="toggleDayNight()">
+        <div id="SearchBar">
+            <input id="SearchBox" type="text" placeholder="Enter a City">
         </div>
+        <p id="errorMessage">City cannot be Empty!</p>
         <div id="ButtonContainer">
-            <button id="EnterButton">
-                Enter
-            </button>
+            <button id="EnterButton" onclick="getWeather()">Enter</button>
         </div>
+    </div>
+    <div id="weatherForecast">
+        <p id="weatherForecastTXT">Weather Forecast</p>
+        <div id="hourlyForecast"></div>
     </div>
     <div id="links">
         <a href="https://www.linkedin.com/in/caleb-chan-154522235/">LinkedIn</a>
         <a href="https://github.com/xCalebChan">GitHub</a>
     </div>
-    <script src="script.js"></script> <!-- links js-->
+    <script src="script.js"></script>
 </body>
 </html>

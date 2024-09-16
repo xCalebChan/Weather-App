@@ -1,38 +1,53 @@
-html, body{
+/* Global Styles */
+html, body {
     height: 100%;
     margin: 0;
 }
 
 body {
-    background: linear-gradient(to bottom, 
-        #ff6e7f, /* Light pinkish-orange */
-        #ffcc83, /* Soft orange */
-        #ff9a8b, /* Warm pink */
-        #ff6f61  /* Deep orange */
-    );
-    background-repeat: no-repeat;   /* Prevents repeating */
-    background-size: cover;         /* Ensures the gradient covers the entire page */
-}
-
-#ButtonContainer {
+    transition: background 2s ease;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(to bottom, #ff6e7f, #ffcc83, #ff9a8b, #ff6f61);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#txt {
-    font-size: xx-large;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* Main UI */
 #UIinterface {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -50px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
+#errorMessage {
+    color: red;
+    display: none;
+    font-size: large;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 5px;
+    margin-bottom: -5px;
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+/* Image */
+#SunIcon {
+    width: 150px; /* Adjust the size as needed */
+    height: auto;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+#ArrowInstruction {
+    width: 140px;
+    height: auto;
+}
+
+/* Search Bar */
 #SearchBar {
     display: flex;
     justify-content: center;
@@ -40,36 +55,101 @@ body {
 }
 
 #SearchBox {
-    width: 120px;
-    height: 10px;
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    font-size: medium;
+}
+
+/* Button */
+#ButtonContainer {
+    margin-top: 10px;
 }
 
 #EnterButton {
     border-radius: 5px;
     padding: 14px 40px;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: large;
     font-weight: bold;
     color: bisque;
-    background-color: #24a0ed ;
+    background-color: #24a0ed;
 }
 
 #EnterButton:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+/* Links */
 #links {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     padding: 10px;
     position: fixed;
-    font-size: medium;
     bottom: 0;
     width: 100%;
     text-align: center;
 }
 
-#links a{
+#links a {
     margin-right: 20px;
+    margin-left: 20px;
+    text-decoration: underline;
+    color: #0000EE;
+}
+
+/* Weather Containers */
+#currentWeather, #weatherForecast {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    padding: 20px;
+    border: 1px solid #000;
+    background-color: rgba(201, 230, 241, 0.692);
+    margin: 0 10px; /* Space between containers */
+}
+
+#currentWeather {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#weatherForecast {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    padding: 20px;
+    border: 1px solid #000;
+    background-color: rgba(201, 230, 241, 0.692);
+    margin: 0 10px; /* Space between containers */
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#weatherForecastTXT, #currentWeatherTXT {
+    font-size: larger;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#currentTemperature {
+    font-size: large;
+}
+
+.hourly-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.hourly-item img {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
 }
