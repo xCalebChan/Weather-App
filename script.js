@@ -56,7 +56,7 @@ function displayWeather(data) {
 
     if (data.cod === '404') {
         error.style.display = 'block';
-        error.textContent = 'Error fetching current weather data. Please try again';
+        error.textContent = 'Error. Please try again or check your spelling';
     } else {
         const cityName = data.name;
         const temperature = Math.round(data.main.temp);
