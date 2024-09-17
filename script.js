@@ -52,9 +52,11 @@ function displayWeather(data) {
     const currIcon = document.getElementById('currentWeatherIcon');
     const currCity = document.getElementById('currentCity');
     const container = document.getElementById('currentWeather');
+    const error = document.getElementById('errorMessage');
 
     if (data.cod === '404') {
-        currTemp.textContent = 'Error';
+        error.style.display = 'block';
+        error.textContent = 'Error fetching current weather data. Please try again';
     } else {
         const cityName = data.name;
         const temperature = Math.round(data.main.temp);
