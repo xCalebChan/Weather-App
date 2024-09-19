@@ -53,11 +53,16 @@ function displayWeather(data) {
     const currCity = document.getElementById('currentCity');
     const container = document.getElementById('currentWeather');
     const error = document.getElementById('errorMessage');
+    const foreContainer = document.getElementById('weatherForecast');
 
     if (data.cod === '404') {
         error.style.display = 'block';
         error.textContent = 'Error. Please try again or check your spelling';
+        container.style.display = 'none';
+        foreContainer.style.display = 'none';
     } else {
+        foreContainer.style.display = 'block';
+        container.style.display = 'block';
         const cityName = data.name;
         const temperature = Math.round(data.main.temp);
         const description = data.weather[0].description;
